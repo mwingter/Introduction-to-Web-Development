@@ -1,0 +1,118 @@
+
+/*** AULA 20 - Border e Outline (borders: dotted, dashed, solid, double, groove, ridge, inset, outset) */
+#exemplo{border:solid 5px red; outline:dotted 5px green;}
+
+
+/*** AULA 19 - Border Outline
+#conteudo{background-color:red; width:600px; height:1200px; position:relative;}
+#texto{background-color:green; width:500px; position:fixed; left:20; top:0;}
+*/
+
+/*** AULA 18 - Position
+#base{background-color:green; width:600px; height:600px;}
+#esquerda{background-color:red; width:300px; height:300px; float:left;}
+#direita{background-color:blue; width:300px; height:300px; float:right;}
+*/
+
+/*** AULA 16 e 17 - Colors e Gradient (no background color: pode usar nome da cor -ver css color names-, códigos hexadecimais -tipo #fff, rgb, rgba, hsl, hsla, esse a é a opacidade da cor)
+#cores {width:200px; height:200px; background: radial-gradient(pink,purple,blue);}
+*/
+
+
+/*** AULA 15 - Google Fonts 
+p{font-family: 'Monoton', cursive; font-size:2.5em;}
+*/
+
+
+/*** AULA 14 - Font Face (não parece q funcionou)
+*{font-size:100%;}
+@font-face {
+	font-family: FFF_Tusj;
+	src: url(fff_tusj-webfont.woff);
+}
+
+p {font-family: FFF_Tusj; font-size:2.5em; }
+*/
+
+
+
+/*** AULA 13 - Fonts (obs: 1em = 16px)
+p {font-family:Arial, Verdana, sans-serif; font-variant:small-caps; font-weight:bold; font-style:oblique; font-size:2.5em; }
+*/
+
+/*** AULA 12 - Border Radius
+#bloco {background-color:green; width:300px; height:150px; border-radius:20px 50px;}
+*/
+
+
+/*** AULA 11 - Overflow e Opacity
+#conteudo {background-color:red; width:300px; height:70px; overflow:auto; }
+#conteudo p {opacity:0.5;}
+*/
+
+
+/*** AULA 10 - Box Sizing e Box Shadow
+*{box-sizing:border-box;}
+#conteudo {background-color:red; width:300px; padding:20px; box-shadow:10px 10px 5px green;}
+*/
+
+
+/*** AULA 08 e 09 - Text
+p {color:red; text-align: justify; text-indent: 20px; line-height:25px; direction:ltr; letter-spacing:2px; word-spacing:4px;}
+h1 {text-align: left; text-decoration:underline; text-shadow:1px -30px red;} 
+h2 {text-align: right; text-decoration:overline;}
+h3 {text-align: center; text-decoration:none;}
+*/
+
+
+/*** AULA 07 - Margin e Padding (espaçamento externo e interno, em relação ao background; ps: se colocar agrupado de uma vez, colocar os valores no sentido horario)
+#exemplo {
+	background-color:green; 
+	color:#fff; 
+	width:500px;
+	height:200px; 
+	padding:10px 20px 30px 40px; 
+}
+
+#exemplo2 {
+	background-color:red; 
+	color:#fff; 
+	width:500px;
+	margin:20px 30px 20px 40px;
+}
+*/
+
+
+/*** AULA 06 - Dimensao
+#conteudo {min-width:500px; min-height:20px; background-color:green; color:#fff; padding:20px;}
+*/
+
+/*** AULA 05 - Class e Id (obs: id é unico, só um elemento pode ter ele, enquanto class varios elementos podem ter o mesmo*/
+.fundo-principal {background-color:green; padding:20px;}
+.texto-principal {color:red; text-align:center;}
+.fundo-principal.texto-principal {background-color:yellow;}
+#conteudo {background-color:blue; padding:20px; color:green;}
+
+
+
+/* AULA 04 - agrupamento de seletores
+h1, h2, p {color: red; text-align:center} 
+*/
+
+/***** AULAS 02 E 03
+ SELETOR UNIVERSAL
+* {margin:0; padding:0;}
+
+ SELETOR TAG 
+h1 {color:blue; font-size:50px;}
+p {color: green; font-size:12px;}
+
+input[type="text"]{width:200px; background-color:#ccc; height:35px; border:none;}
+input[name="email"]{width:200px; background-color:#ccc; height:35px; border:none;}
+input[type="submit"]{width:50px; background-color:green; height:35px; border:none; cursor:pointer; color:#fff;}
+
+*/
+
+/***** AULA 01
+h1 {color:blue; font-size:60px; font-family:tahoma;}
+*/
