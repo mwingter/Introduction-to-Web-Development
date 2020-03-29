@@ -1,0 +1,25 @@
+/*  Nome: Michelle Wingter da Silva
+    nUSP: 10783243
+*/
+
+.container {background-color:lightgrey; padding:20px;}
+
+.card {background-color:white; width:500px; margin: 10px auto; padding:10px;}
+
+.text-center {text-align: center; color:darkslategrey;}
+
+.img-circle {border-radius:50%; border-style:hidden; padding-top: 20px; }
+
+.fa {color:lightgrey; }
+
+.list-inline li {display: inline-block; padding:10px; padding-right:40px; color:grey;}
+
+
+a{text-decoration:none;color:lightgrey;}
+
+p, h3 {margin-left:10px;}
+
+h4 {background-color:lightcoral; color: white; border:none; padding:10px; text-decoration: none; display: inline-block; border-radius:5%; font-weight: normal}
+
+
+#movies {text-align: justify; padding:25px; color:darkslategrey;}
