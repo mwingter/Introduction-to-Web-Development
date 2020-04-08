@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+
+    <style>
+        div#area{
+            font: normal 20pt Arial;
+            background: green;
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="area" >
+        Interaja...
+    </div>
+
+    <script>
+        //tipos de eventos DOM:
+        // - mouseenter - quando o mouse entra na div
+        // - mousemove - enquanto tiver movendo dentro da move, vai ficar disparando o evento mousemove
+        // - mousedown - quando aperta o mouse na div
+        // - mouseup - quando solta o botao do mouse na div
+        // - click - clique inteiro na div (apertar e soltar rapidamente dentro da div)
+        // - mouseout - quando o mouse sai da div (igual quando entra)
+        //Obs: Existe mais um monte de eventos, ver em "Event reference - MDN web docs"
+
+        var a = window.document.getElementById("area");
+        a.addEventListener('click', clicar);       // outra forma pior de fazer seria colocar no proprio div, assim:
+        a.addEventListener('mouseenter', entrar); // <div id="area" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()" 
+        a.addEventListener('mouseout', sair);     // </div>
+
+        function clicar(){
+            a.innerText = "Clicou!";
+            a.style.background = "red";
+        }
+        function entrar(){
+            a.innerText = "Entrou!";
+        }
+        function sair(){
+            a.innerText = "Saiu!";
+            a.style.background = "green";
+        }
+    </script>
+</body>
+</html>

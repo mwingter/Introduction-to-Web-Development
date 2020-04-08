@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body{
+            background: rgb(100, 100, 199);
+            color: white;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em Javascript.</p>
+    <div id='msg'>Clique em mim</div>
+    <script>
+        //usar WATCH IN CHROME (pra pagina do chrome atualizar ao mesmo tempo q modificamos o arquivo aqui)
+        //comando Ctrl + Shift + P e digitar "Watch in Chrome"
+
+        //window.document.write(window.navigator.appName);
+        //window.document.write(window.document.URL);
+
+        var corpo = window.document.body;
+        var p1 = window.document.getElementsByTagName('p')[1];
+        //window.document.write(p1.innerText);
+        //var d = window.document.getElementById('msg');
+        //d.style.background = 'green';
+        //d.innerText = 'Estou aguardando...';
+        //window.document.getElementById('msg').innerText = 'Olá'; //assim fica mto grande
+        //var d = window.document.getElementsByName('msg')[0]
+        //d.innerText = 'Olá'
+        var d = window.document.querySelector('div#msg'); //se é id bota essa #, se for class bota ponto .
+        d.style.background = 'blue';
+
+       
+        
+    </script>
+</body>
+</html>

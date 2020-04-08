@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(219, 172, 231);
+            color: rgb(255, 0, 140);
+            font: normal 20pt Arial;
+        }
+        h1{
+            color: blueviolet
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+    <p>Já me livrei da maldição!</p>
+    <script> //aqui já é javascript
+        //ex002
+       /*var nome = window.prompt('Qual é seu nome?');
+       window.alert("é um grande prazer em te conhecer, " + nome);*/
+
+        //ex003 
+        /* var n1 = window.prompt('Digite um numero: '); //retorna sempre string
+       var n2 = Number.parseFloat(window.prompt('Digite outro numero: ')); //da pra converter direto
+       var s = parseFloat(n1) + n2; //convertendo string pra float
+       // pode usar tbm só Number(n)
+      // window.alert('A soma dos valores é '+ s);
+       window.alert(`A soma de ${n1} e ${n2} é igual a ${s}`); //obs: tem q usar acento grave no lugar de aspas pra esse template de string
+        */
+
+        //ex004
+        /*
+        var nome = window.prompt('Qual seu nome?');
+        document.write(`Olá <strong>${nome}</strong>. Seu nome tem ${nome.length} letras.`);
+        document.write(`Seu nome em maiusculas é ${nome.toUpperCase()}. `);
+        document.write(`Seu nome em minusculas é ${nome.toLowerCase()}. `);
+        */
+
+        //como converter um numero pra um valor monetario 
+        /*
+        var n1 = 1200.5;
+        n1.toFixed(2); //bota 2 casas decimais
+        n1.replace('.', ','); //troca o ponto por virgula
+        n1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) //localiza para o Brasil, com estilo de dinheiro (currency), e currency é BRL (ou seja, Real). poderia ser USD pra dolar, EUR pra euro, etc
+        */
+
+
+    </script>
+</body>
+</html>
