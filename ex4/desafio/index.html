@@ -1,0 +1,89 @@
+<!-- 
+	Aluno: Michelle Wingter da Silva
+	nUSP: 10783243 
+-->
+
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+    <title>Desafio Calculadora</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            background-color: turquoise;
+            width: 224px;
+            margin: 10px;
+            padding: 8px;
+            border-radius: 5%;
+        }
+        .textView{
+            width: 211px;
+            height: 50px;
+            margin: 3px;
+            border-width: 4px;
+            font-size: 25px;
+            text-align: right;
+        }
+        #table{
+            background-color: rgb(189, 228, 228);
+            margin: 3px;
+            padding: 5px;
+        }
+        .button{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            background-color: teal;
+            border-color: rgb(7, 201, 201);
+            cursor: pointer;
+        }
+        .button.bigger{
+            width: 102px;
+        }
+
+    </style>
+	
+</head>
+<body>
+    <div id="main">
+        <form name="form">
+            <input class="textView" name="textView"> <!-- telinha onde aparecerão os valores clicados e o resultado da operação-->
+        </form>
+        <table id="table"> <!--tabela para organizar os botões em linhas e colunas-->
+            <tr> <!-- isso representa uma linha -->
+                <td colspan="2"><input class="button bigger" type="button" value="C" onclick="apaga()"></td> <!-- isso representa uma coluna nessa linha-->
+                <td colspan="2"><input class="button bigger" type="button" value="=" onclick="calcResult()"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="7" onclick="apareceNaTela(7)"></td>
+                <td><input class="button" type="button" value="8" onclick="apareceNaTela(8)"></td>
+                <td><input class="button" type="button" value="9" onclick="apareceNaTela(9)"></td>
+                <td><input class="button" type="button" value="+" onclick="apareceNaTela('+')"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="4" onclick="apareceNaTela(4)"></td>
+                <td><input class="button" type="button" value="5" onclick="apareceNaTela(5)"></td>
+                <td><input class="button" type="button" value="6" onclick="apareceNaTela(6)"></td>
+                <td><input class="button" type="button" value="-" onclick="apareceNaTela('-')"></td>
+            </tr>
+            <tr>
+                <td><input class="button" type="button" value="1" onclick="apareceNaTela(1)"></td>
+                <td><input class="button" type="button" value="2" onclick="apareceNaTela(2)"></td>
+                <td><input class="button" type="button" value="3" onclick="apareceNaTela(3)"></td>
+                <td><input class="button" type="button" value="*" onclick="apareceNaTela('*')"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="button bigger" type="button" value="0" onclick="apareceNaTela(0)"></td>
+                <td><input class="button" type="button" value="." onclick="apareceNaTela('.')"></td>
+                <td><input class="button" type="button" value="/" onclick="apareceNaTela('/')"></td>
+            </tr>
+        </table>
+    </div>
+
+
+	<script src="script.js"></script>
+</body>
+</html>
