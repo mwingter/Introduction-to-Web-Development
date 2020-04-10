@@ -1,5 +1,6 @@
-/* 
-Michelle Wingter da Silva, 10783243
+/*
+	Aluno: Michelle Wingter da Silva
+    nUSP: 10783243
 */
 
 //ex a
