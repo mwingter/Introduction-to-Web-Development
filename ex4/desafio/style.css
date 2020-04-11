@@ -39,3 +39,6 @@
 .button.bigger{
     width: 102px;
 }
+.button.expr{
+    background-color: rgb(180, 108, 0);
+}
