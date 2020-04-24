@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <img 
+        v-bind:src="srcImg" 
+        :title="titleImg"> <!--em vez de v-bind:title, pode por só :title tambem-->
+        <hr>
+        <a v-bind:href="url">Vue</a>
+        <hr>
+        <p v-text="'textPar'"></p>
+        <hr>
+        <p v-text="textPar"></p>
+        <hr>
+        <div v-text="textPar"></div>
+        <hr>
+        <div v-html="textPar"></div> <!-- usei diretiva html aqui, por isso ele entendeu o <br>-->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app', //elemento principal do vue
+            data: {
+                srcImg: 'vuelogo.png',
+                titleImg: 'Logo VUE',
+                url: 'http://vuejs.org',
+                textPar: 'texto <br> qualquer'
+            },
+
+        })
+    </script>
+
+
+    
+</body>
+</html>

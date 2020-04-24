@@ -4,13 +4,16 @@
 */
 
 //####### Ex a - Usando como servidor o GET do List <resourse> 
-fetch('https://reqres.in/api/unknown')
+var nameList = []; //lista com nome das cores
+var rgbList = []; //lista com código rgb das cores
+
+fetch('https://reqres.in/api/unknown?page=1') //pegando a primeira página
 .then(function(response){
     //console.log(response);
     return response.json();
 })
 .then(function(response){
-    //console.log(response.data); //response.data retorna um array
+    console.log(response.data); //response.data retorna um array
     //como é um array, tenho q fazer um loop pra ir um a um inserindo os dados dentro do html
     response.data.forEach(function(user){
         nameList.push(user.name);
@@ -18,6 +21,19 @@ fetch('https://reqres.in/api/unknown')
     })
 })
 
+fetch('https://reqres.in/api/unknown?page=2') //pegando a segunda página
+.then(function(response){
+    //console.log(response);
+    return response.json();
+})
+.then(function(response){
+    console.log(response.data); //response.data retorna um array
+    //como é um array, tenho q fazer um loop pra ir um a um inserindo os dados dentro do html
+    response.data.forEach(function(user){
+        nameList.push(user.name);
+        rgbList.push(user.color);
+    })
+})
 
 //####### Ex b - criação de um elemento de “caixa” de cor preta, com um texto dentro que informa o HEX e o nome dessa cor.
 var box = document.createElement("div");
@@ -53,9 +69,6 @@ document.body.appendChild(box);
 document.body.appendChild(button);
 
 button.addEventListener("click", clicar); //adicionando evento ao botão
-
-var nameList = []; //lista com nome das cores
-var rgbList = []; //lista com código rgb das cores
 
 function clicar(){
     var randomNumber = Math.floor(Math.random() * (nameList.length)); //cada vez que clicar, gera um número entre 1 e o número de cores disponíveis no servidor

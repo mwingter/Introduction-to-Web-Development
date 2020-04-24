@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" v-model:value="textDigitado">
+        <br />
+        <div v-if="textDigitado == 1">
+            <img :src="srcImg" :title="titleImg" width="100px" /> 
+        </div>       
+        <div v-else-if="textDigitado == 2">
+            <img :src="srcImg1" :title="titleImg" width="100px" />
+        </div> 
+        <div v-else>
+            <img :src="srcImg2" :title="titleImg" width="100px" />
+        </div> 
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app', //elemento principal do vue
+            data: {
+                textDigitado: '',
+                srcImg: 'vuelogo.png',
+                srcImg1: 'vuelogo2.png',
+                srcImg2: 'vuelogo3.png',
+                titleImg: 'Logo VUE',
+            },
+
+        })
+    </script>
+
+
+    
+</body>
+</html>
