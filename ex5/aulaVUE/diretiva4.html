@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <form v-on:submit.prevent="alterarNome('Andrade')">
+            <input type="text" v-model="textDigitado" />
+            <button @click="alterarNome('Andrade', $event)"> <!-- v-on ou @ da no mesmo -->
+                Add
+            </button>
+        </form>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app', //elemento principal do vue
+            data: {
+                textDigitado: "",
+            },
+            methods: {
+                alterarNome(sobrenome, event){     
+                    this.textDigitado = sobrenome;
+                    //console.log(event);
+                }
+            }
+        });
+    </script>   
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{nome}}
+    </div> 
+    <script>
+
+        Vue.component('painel', {
+            data() {
+                return{
+                    titulo: 'Painel noticias'
+                }
+            },
+            methods: {
+                alertAlgo(){
+                    this.titulo = "alertar de algo";
+                }
+            },
+            template: //colocamos tudo dentro de uma div pq só podemos mandar Um elemento, e como temos dois, colocamos eles dentro de uma div 
+            ` 
+            <div> 
+            <h1>{{titulo}}</h1>
+            <button @click="alertAlgo()">Alert</button>
+            </div>
+            `
+        });
+
+        const app = new Vue({
+            //el: "#app",
+            data:{
+                nome: 1
+            },
+            methods:{
+                atualizaQualquerCoisa(){
+                    this.nome += 1
+                },
+                destruir(){
+                    this.$destroy(); //destroi essa instancia do Vue, dai nada mais vai funcionar
+                }
+            },
+            template: //usei template string (` em vez de ") aqui pra dar enter pra ficar menos feio
+            `<div>
+                <painel></painel>
+                <br>
+                {{nome}}
+                <button @click="atualizaQualquerCoisa()">Atualizar</button>
+                <br>
+                <button @click="destruir()">Destruir</button>
+                
+            </div>`,
+            beforeCreate(){ //esse é o primeiro metodo q será chamado
+                console.log("Antes de criar tudo");
+            },
+            created(){ //esse vai ser chamado depois q tudo ja tiver sido criado
+                console.log("Quando já foi criado tudo");
+            },
+            beforeMount(){ //ainda antes de montar ele chama esse
+                console.log("Antes de montar tudo");
+            },
+            mounted(){ //depois de montado, chama essa e entra no ciclo do Mounted
+                console.log("tudo montado");
+            },
+            beforeUpdate() { //oq ta aqui ja foi mudado
+                //console.log("Antes de atualizar qualquer coisa");
+                console.log("O valor é: " + this.nome);
+            },
+            updated() {
+                //console.log('Depois de atualizar');
+                console.log("Depois de atualizar, agora é " + this.nome)
+            },
+            beforeDestroy(){
+                console.log("Antes de destruir");
+            },
+            destroyed(){
+                console.log('DESTRUIDO');
+            },
+
+        }).$mount("#app"); //posso colocar aqui no lugar do 'el:"#app"' lá em cima
+    </script>  
+</body>
+</html>

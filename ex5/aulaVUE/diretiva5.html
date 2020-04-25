@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <input type="text" v-model="textDigitado"
+        v-on:keyup.enter="alterarNome()" />
+
+        <ul>
+            <li 
+            v-for="item in array"
+            style="background: white;"
+            @click="alerta($event)"
+            >
+                {{item}}
+            </li>
+        </ul>
+
+       <!--
+        red
+        <input @click="corP($event.target.value)" type="radio" name="cor" value="red" checked> 
+        green
+        <input @click="corP($event.target.value)" type="radio" name="cor" value="green">
+        blue
+        <input @click="corP($event.target.value)" type="radio" name="cor" value="blue">
+        yellow
+        <input @click="corP($event.target.value)" type="radio" name="cor" value="yellow">
+
+         <p v-bind:class="classParagrafo">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo sequi assumenda porro perferendis nisi tempore commodi aspernatur id, voluptatibus quo rem, perspiciatis inventore omnis, non vero! Cumque corporis ipsam sint!
+        </p> -->
+
+        <br><br>
+        <button @click="vermelho()">vermelho</button>
+        <button @click="verde()">verde</button>
+        <button @click="incolor()">incolor</button>
+        <button @click="borda()">borda</button>
+
+        <p v-bind:class="{
+            red: colors.vermelho, 
+            green: colors.verde,
+            borda: colors.borda
+        }">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum asperiores sed similique aliquam eos, obcaecati animi unde cupiditate incidunt. Laboriosam voluptatem possimus eos iste delectus dicta harum dolores id blanditiis.
+        </p>
+
+        <p class="red, green">
+            teste
+        </p>
+
+    </div>
+        
+    <style>
+        .red {
+            background-color: red;
+        }
+        .borda{
+            border: 2px solid black;
+        }
+        .green {
+            background-color: green;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app', //elemento principal do vue
+            data: {
+                colors: {
+                    vermelho: false,
+                    verde: false,
+                    borda: false,
+                },
+                classParagrafo: 'red',
+                textDigitado: "",
+                array: [],
+            },
+            methods: {
+                alterarNome(){     
+                    this.array.push(this.textDigitado);
+                    this.textDigitado = '';
+                    //console.log(event);
+                },
+                alerta(event){
+                    //alert(event.target.textContent.trim());
+                    element = event.target;
+                    if(element.style.background == 'white')
+                        event.target.style = "background: red";
+                    else
+                        event.target.style = "background: white";
+                },
+                corP(cor){
+                    this.classParagrafo = cor;
+                },
+                vermelho(){
+                    this.colors.vermelho = !this.colors.vermelho;
+                    this.colors.verde = false;
+                },
+                verde(){
+                    this.colors.vermelho = false;
+                    this.colors.verde = !this.colors.verde;
+                },
+                incolor(){
+                    this.colors.vermelho = false;
+                    this.colors.verde = false;
+                    this.colors.borda = false;
+                },
+                borda(){
+                    this.colors.borda = !this.colors.borda;
+                },
+            }
+        });
+    </script>   
+</body>
+</html>

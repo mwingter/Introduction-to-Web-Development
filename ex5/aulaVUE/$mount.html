@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <button onclick="carregar()">
+        CHAMAR MUDANÇA
+    </button>
+    <div id="app">
+        
+    </div> 
+    <script>
+        function carregar(){
+            app.$mount("#app") //usei '#' aqui pq é id, se fosse classe seria '.'
+        }
+
+        const app = new Vue({
+            el: '#app', //elemento principal do vue 
+            data: {
+                nome: `olá mundo`
+            },
+            template: "<h1>{{ nome }}</h1>"
+        });
+    </script>  
+</body>
+</html>
