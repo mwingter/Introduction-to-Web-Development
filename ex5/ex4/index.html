@@ -7,22 +7,48 @@
     <head>
         <meta charset="UTF-8" />
         <title>Vue.js Search</title>
+        <link href="style.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
         <div id="app" class="container-fluid">
             <h1>Vue.js Search</h1>
       
-      <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search term">
-      </div>
-      
-      <div class="result-container">
-        <h2>Results<span></span></h2>
-        <ul class="list-group">
-          <li class="list-group-item"></li>
-        </ul>
-      </div>
+            <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search term"
+            v-model="termo" v-on:keyup.enter="busca()">
+            </div>
+            
+            <div class="result-container">
+                <h2>Results<span></span></h2>
+                <ul class="list-group">
+                    <li v-for="(item) in filtrados" class="list-group-item">
+                        {{item}}
+                    </li>
+                </ul>
+
+            </div>
       
         </div>
+
+        <script>
+            new Vue({
+                el: '#app', //elemento principal do vue  
+                data: {
+                    lista: ["Mulher Maravilha", "Brainiac", "Aquaman", "Ravena", "Batman", "Superman", "Mulher Gavião", "Flash", "Lanterna Verde", "Shazam"],
+                    termo: "",
+                    results: [],
+                    count: 0,
+                },
+                   
+                computed: {
+                    filtrados: function(){
+                        return this.lista.filter((item) => {
+                          return item.toLowerCase().match(this.termo.toLowerCase());
+                        })
+                    }
+                }                      
+            });
+        </script>
     </body>
 </html>
