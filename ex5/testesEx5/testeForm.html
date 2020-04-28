@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form" action="#" method="post">
+        Data 1 <input type="text" name="data" onkeyup="mascara_data(this, this.value)" maxlength="10" />
+        <br />
+        Data 2 <input type="text" name="data1" onkeyup="mascara_data(this, this.value)" maxlength="10" />
+        <br />
+        Data 3 <input type="text" name="data2" onkeyup="mascara_data(this, this.value)" maxlength="10" />
+        <br />
+        <input type="submit" value="ENVIAR" />
+        </form>
+        
+
+        <script type="text/javascript">
+            function mascara_data(campo, valor){
+              var mydata = '';
+              mydata = mydata + valor;
+              if (mydata.length == 2){
+                mydata = mydata + '/';
+                campo.value = mydata;
+              }
+              if (mydata.length == 5){
+                mydata = mydata + '/';
+                campo.value = mydata;
+              }
+            }
+        </script>
+</body>
+</html>

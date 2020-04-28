@@ -1,40 +1,156 @@
+<!--    Nome: Michelle Wingter da Silva
+        nUSP: 10783243
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Vue.js Form</title>
-	</head>
+    <title>Vue.js Form</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="libs/vuelidate.min.js"></script>
+    <script src="libs/validators.min.js"></script>
+
+    <style>
+      
+    </style>
+  </head>
 	<body>
 		<div id="app" class="container-fluid">
       <h1>Vue.js Form</h1>
         
         <div class="form-container" >
-          <div class="form-row">
-            <div class="form-group col-6">
-              <input type="text" class="form-control" placeholder="Primeiro Nome">
-            </div>
-            <div class="form-group col-6">
-              <input type="text" class="form-control" placeholder="Sobrenome">
-            </div>
+          <form @submit.prevent="submeterForm" class="form-row" >
+
+            <table>
+              <tr>
+                <div class="form-group col-6">
+                  <td><input v-model="form.nome" type="text" class="form-control" placeholder="Primeiro Nome"></td>                 
+                </div>
+                <div class="form-group col-6">
+                  <td><input v-model="form.sobr" type="text" class="form-control" placeholder="Sobrenome"></td>
+                  
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group col-12">
+                  <td colspan="2"><input v-model="form.nasc" type="text" onfocus="(this.type='date')" class="form-control big"  placeholder="Data de Nascmento" ></td>
+                  
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group col-md-6">
+                  <td><input v-model="form.cid" type="text" class="form-control" placeholder="Cidade"></td>              
+                </div>
+                <td>
+                  <div class="form-group col-md-4">
+                    <select v-model="form.signo" id="signo" class="form-control">
+                      <option selected disabled>Signo</option>
+                      <option>Áries</option>
+                      <option>Leão</option>
+                      <option>Touro</option>
+                      <option>Gêmeos</option>
+                      <option>Câncer</option>
+                      <option>Virgem</option>
+                      <option>Libra</option>
+                      <option>Escorpião</option>
+                      <option>Sagitário</option>
+                      <option>Capricórnio</option>
+                      <option>Aquário</option>
+                      <option>Peixes</option>
+                    </select>                
+                  </div>
+                </td>
+                
+              </tr>                
+            </table>
+                     
             <div class="form-group col-12">
-              <input type="text" class="form-control" placeholder="Data de Nascmento" >
             </div>
-            <div class="form-group col-md-6">
-              <input type="text" class="form-control" placeholder="Cidade">
-            </div>
-            <div class="form-group col-md-4">
-              <select id="state" class="form-control">
-                <option selected>Signo</option>
-                <option>Áries</option>
-                <option>Leão</option>
-                <option>...</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div class="form-group col-12">
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </div>
+            <tr>
+                <td><button type="submit" class="btn btn-primary">Enviar</button></td>
+                <td><p id="warning" class="error-message"></p></td>              
+            </tr>
+            <tr>
+              <td><p v-if="$v.form.nome.$invalid" class="error-message">Preencha o campo 'Primeiro Nome'.</p></td>
+              <td><p v-if="$v.form.sobr.$invalid" class="error-message">Preencha o campo 'Sobrenome'.</p></td>
+              <td><p v-if="$v.form.nasc.$invalid" class="error-message">Preencha o campo 'Data de Nascimento'.</p></td>
+              <td><p v-if="$v.form.cid.$invalid" class="error-message">Preencha o campo 'Cidade'.</p></td>
+              <td><p v-if="$v.form.signo.$invalid" class="error-message">Selecione um Signo.</p></td>
+            </tr> 
+            
+                
+          </form>
       </div>
+
+      <script>
+        
+          Vue.use(vuelidate.default)
+
+          new Vue({
+              el: '#app', //elemento principal do vue  
+
+              data() {
+                  return {
+                      form: {
+                          nome: null,
+                          sobr: null,
+                          nasc: null,
+                          cid: null,
+                          signo: "Signo"
+                      }      
+                  }            
+              },
+
+              validations: {
+                  form:{
+                      nome: {
+                          required: validators.required
+                      },
+                      sobr: {
+                          required: validators.required
+                      },
+                      nasc: {
+                          required: validators.required,
+                          maxValue: value => value < new Date().toISOString(),
+                          minValue: value => value > "1910-01-01",                        
+                      },
+                      cid: {
+                          required: validators.required
+                      },
+                      signo: {
+                          required: validators.required,
+                          selected(val) {
+                              return this.form.signo === "Signo" ? false : val;
+    }  
+                      },
+                  }
+              },
+
+              methods: {
+                  submeterForm(){
+                      //console.log("submetendo form")
+                      if(!this.$v.form.$invalid){
+                          console.log('Form submetido', this.form);
+                          document.getElementById("warning").innerText = "";
+                          alert("Vue.js Form Submetido!");
+                          this.form.nome = null;
+                          this.form.sobr = null;
+                          this.form.nasc = null;
+                          this.form.cid = null;
+                          this.form.signo = "Signo";
+                      }          
+                      else{
+                          console.log('Vue.js Form Invalido!');
+                          alert("Form não enviado. Preencha corretamente o Vue.js Form!");
+                          document.getElementById("warning").innerText = "Preencha corretamente o Vue.js Form!";
+                      }
+                  },
+
+              },
+                        
+          })
+      </script>
 	</body>
 </html>
