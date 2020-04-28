@@ -1,0 +1,54 @@
+/*
+	Aluno: Michelle Wingter da Silva
+    nUSP: 10783243
+*/
+
+*{
+    margin: 10px;
+    padding: 0;
+    background-color: rgb(240, 229, 229);
+}
+
+.error-message{
+    color: red;
+    font-size: small;
+}
+#warning{
+    font-weight: bold;
+    font-size: medium;
+}
+
+#app{   
+    text-align: center;  
+}
+
+.form-container{
+    display: inline-block;
+}
+
+.btn{
+    padding: 10px;
+    border-radius: 15%;
+    background-color: #008CBA;
+    color: white;
+    border-style: none;
+}
+
+input, select{
+    padding: 8px;
+    background-color: white;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(226, 222, 222);
+    border-width: 1px;
+    color: grey;
+    width: 300px;
+
+}
+
+.big{
+    width: 646px;
+    padding-right: 1px;
+}
+
+
