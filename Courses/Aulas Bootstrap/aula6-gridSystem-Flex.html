@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  
+    <style>
+        .row div{
+            padding: 20px 10px;
+            border: 1px solid;
+        }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+
+        <div class="row" style="background: lightblue">
+            <div class="col-md">col-md</div> <!-- automatizamente divide os itens (os q nao tem tamanho determinado) igualmente (mesmo width) para a tela escolhida (nesse caso md medio)-->
+            <div class="col-md-8">col-md</div>
+            <div class="col-md">col-md</div>
+        </div>
+        <br>
+
+        <div class="row justify-content-md-center" >
+            <div class="col-md-2 flex-last">1 col-md-2</div> <!-- flex last: faz desse elemento o ultimo-->
+            <div class="col-md-2 flex-first">2 col-md-2</div> <!-- flex first: faz desse elemento o primeiro-->
+            <div class="col-md-2">3 col-md-2</div>
+        </div>
+        <br>
+                
+    </div>
+        
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>
