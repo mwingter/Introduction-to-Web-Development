@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs do jeito ninja!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Componentes são partes do projeto que normalmente usamos em varios lugares. Um pedaço de codigo q repetimos varias vezes. -->
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <menu-bar></menu-bar>
+        <menu-bar></menu-bar>
+        <menu-bar></menu-bar>
+    </div>
+
+    <template id="menu">
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </template>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        Vue.component('menu-bar', { //menu-bar vai ser uma tag, e onde tiver essa tag o Vue vai reconhecer q é um componente e vai substituir essa tag pelo meu Template
+            template: "#menu"
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titulo: "Vuejs do jeito ninja!"
+            }
+        });
+    </script>
+
+    
+</body>
+</html>
