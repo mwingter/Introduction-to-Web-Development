@@ -28,7 +28,9 @@ class Menu extends Component {
                     <CardText>{dish.description}</CardText>
                   </CardBody>
               </Card>
+
               <DishDetail dishToDetail={this.state.selectedDish} />
+
 
             </div>
           );
