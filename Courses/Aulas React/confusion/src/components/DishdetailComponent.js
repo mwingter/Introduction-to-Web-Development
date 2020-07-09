@@ -18,10 +18,7 @@ class DishDetail extends Component {
                                 <br/>-- {anObjectMapped.author},
                                     {anObjectMapped.date}
                                 <br/><br/>
-                                
-                            </li>
-
-                                
+                            </li>     
                         );
                     })}
                 </ul>
@@ -35,25 +32,14 @@ class DishDetail extends Component {
 
     render() {
         const detail = this.props.dishToDetail;
-       // console.log(detail.comments);
-       /*
-       {detail.comments.map((index) => {
-           return this.renderComments(detail.comments)
-       })}*/
 
         return (
-            //<div className="row">
-                //<div className="col-12 col-md-5 m-1">
-                
-                    <Card>
+                    <Card class="">
                         <CardBody>
                             <CardTitle><h4>Comments</h4></CardTitle>
                             {this.renderComments(detail.comments)}
-                           
                         </CardBody>
                     </Card>             
-               // </div>
-              //</div>
         );
 
             

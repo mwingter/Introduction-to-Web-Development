@@ -21,18 +21,26 @@ class Menu extends Component {
       if (dish != null)
           return(
             <div>
-              <Card>
-                  <CardImg top src={dish.image} alt={dish.name} />
-                  <CardBody>
-                    <CardTitle>{dish.name}</CardTitle>
-                    <CardText>{dish.description}</CardText>
-                  </CardBody>
-              </Card>
+              <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                <Card>
+                    <CardImg top src={dish.image} alt={dish.name} />
+                    <CardBody>
+                      <CardTitle>{dish.name}</CardTitle>
+                      <CardText>{dish.description}</CardText>
+                    </CardBody>
+                </Card>
 
-              <DishDetail dishToDetail={this.state.selectedDish} />
-
+                </div>
+                <div className="col-12 col-md-5 m-1"> 
+                    <DishDetail dishToDetail={this.state.selectedDish} />
+                </div>
+              </div>
+              
+             
 
             </div>
+
           );
       else
           return(
@@ -60,11 +68,7 @@ class Menu extends Component {
               <div className="row">
                   {menu}
               </div>
-              <div className="row">
-                  <div className="col-12 col-md-5 m-1">
-                    {this.renderDish(this.state.selectedDish)}
-                  </div>
-              </div>              
+              {this.renderDish(this.state.selectedDish)}        
           </div>
       );
   }
