@@ -11,12 +11,12 @@ class DishDetail extends Component {
             return(
                 <ul key={comments.id} className="list-unstyled">
 
-                    {comments.map((anObjectMapped, index) => {
+                    {comments.map((comment, index) => {
                         return (
-                            <li key={`${anObjectMapped.comment}_{anObjectMapped.author}`}>
-                                {anObjectMapped.comment}
-                                <br/>-- {anObjectMapped.author},
-                                    {anObjectMapped.date}
+                            <li key={`${comment.comment}_{comment.author}`}>
+                                {comment.comment}
+                                <br/>-- {comment.author}, <span>&nbsp;</span>
+                                 {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
                                 <br/><br/>
                             </li>     
                         );
@@ -34,7 +34,7 @@ class DishDetail extends Component {
         const detail = this.props.dishToDetail;
 
         return (
-                    <Card class="">
+                    <Card className="border-0">
                         <CardBody>
                             <CardTitle><h4>Comments</h4></CardTitle>
                             {this.renderComments(detail.comments)}
