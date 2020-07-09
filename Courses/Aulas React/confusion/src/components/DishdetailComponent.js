@@ -4,15 +4,24 @@ import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
 class DishDetail extends Component {
 
- 
+ /*
+    {comments.map((index) => {
+        return <li key={index.id}> {index.comment} </li>
+    })}*/
 
     renderComments(comments) {
         console.log(comments);
         if (comments != null)
                 return(
-                    <ul className="list-unstyled">
-                        {comments.map((index) => {
-                            return <li key={index.id}> {index.comment} </li>
+                    <ul key={comments.id} className="list-unstyled">
+
+
+                        {comments.map((anObjectMapped, index) => {
+                            return (
+                                <li key={`${anObjectMapped.comment}_{anObjectMapped.author}`}>
+                                    {anObjectMapped.comment} - {anObjectMapped.author}
+                                </li>
+                            );
                         })}
                     </ul>
                 )
@@ -33,11 +42,12 @@ class DishDetail extends Component {
                     <Card>
                         <CardBody>
                             <CardTitle><h4>Comments</h4></CardTitle>
-                            <CardText> 
+                             
                                 {detail.comments.map((index) => {
                                     return this.renderComments(detail.comments)
                                 })}
-                                </CardText>
+                            
+                            
                         </CardBody>
                     </Card>             
                 </div>
