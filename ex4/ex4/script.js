@@ -13,9 +13,9 @@ fetch('https://reqres.in/api/unknown?page=1') //pegando a primeira página
     return response.json();
 })
 .then(function(response){
-    console.log(response.data); //response.data retorna um array
+    console.log(response.vagas); //response.data retorna um array
     //como é um array, tenho q fazer um loop pra ir um a um inserindo os dados dentro do html
-    response.data.forEach(function(user){
+    response.vagas.forEach(function(user){
         nameList.push(user.name);
         rgbList.push(user.color);
     })
